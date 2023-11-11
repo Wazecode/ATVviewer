@@ -6,6 +6,8 @@ AVTveiwer::AVTveiwer(QWidget *parent)
     , ui(new Ui::AVTveiwer)
 {
     ui->setupUi(this);
+    player = new QMediaPlayer();
+    sound = new QAudioOutput();
 }
 
 AVTveiwer::~AVTveiwer()
@@ -41,17 +43,36 @@ void AVTveiwer::on_actionImport_Text_triggered()
 void AVTveiwer::on_actionImport_Video_triggered()
 {
 
-    QString filename = QFileDialog::getOpenFileName(this, "Open the file");
-    if(filename.isEmpty())
+    QUrl path = QFileDialog::getOpenFileUrl(this);
+    if(path.isEmpty())
         return;
 
-    QUrl path = QFileDialog::getOpenFileUrl(this);
 
-    currFile = filename;
+    currFile = path.fileName();
 
-    QMediaPlayer* player = new QMediaPlayer;
     player->setSource(path);
     player->setVideoOutput(ui->video);
+    player->setAudioOutput(sound);
+    sound->setVolume(75);
+    player->play();
+}
+
+
+
+
+void AVTveiwer::on_actionImport_Audio_triggered()
+{
+    QUrl path = QFileDialog::getOpenFileUrl(this);
+    if(path.isEmpty())
+        return;
+
+
+    currFile = path.fileName();
+
+    player->setSource(path);
+    player->setVideoOutput(ui->video);
+    player->setAudioOutput(sound);
+    sound->setVolume(75);
     player->play();
 }
 

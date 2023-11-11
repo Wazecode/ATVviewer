@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QMediaPlayer>
+#include <QAudioOutput>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AVTveiwer; }
@@ -23,8 +24,12 @@ private slots:
 
     void on_actionImport_Video_triggered();
 
+    void on_actionImport_Audio_triggered();
+
 private:
     Ui::AVTveiwer *ui;
     QString currFile;
+    QMediaPlayer *player;
+    QAudioOutput *sound;
 };
 #endif // AVTVEIWER_H
