@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AVTveiwer</class>
+ <widget class="QMainWindow" name="AVTveiwer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>AVTveiwer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>383</x>
+      <y>10</y>
+      <width>411</width>
+      <height>551</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QVideoWidget" name="video" native="true">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>-1</y>
+      <width>361</width>
+      <height>561</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionImport_Text"/>
+    <addaction name="actionImport_Video"/>
+    <addaction name="actionImport_Audio"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionImport_Text">
+   <property name="text">
+    <string>Import Text</string>
+   </property>
+  </action>
+  <action name="actionImport_Video">
+   <property name="text">
+    <string>Import Video</string>
+   </property>
+  </action>
+  <action name="actionImport_Audio">
+   <property name="text">
+    <string>Import Audio</string>
+   </property>
+  </action>
+  <action name="actionntoeuh">
+   <property name="text">
+    <string>ntoeuh</string>
+   </property>
+  </action>
+  <action name="actionsaoneuth">
+   <property name="text">
+    <string>saoneuth</string>
+   </property>
+  </action>
+  <action name="actionnaoteuh">
+   <property name="text">
+    <string>naoteuh</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVideoWidget</class>
+   <extends>QWidget</extends>
+   <header>QVideoWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
