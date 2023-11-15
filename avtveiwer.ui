@@ -30,8 +30,34 @@
       <x>9</x>
       <y>-1</y>
       <width>361</width>
-      <height>561</height>
+      <height>511</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="videoSlider">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>520</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pauseButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>520</y>
+      <width>21</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

@@ -8,13 +8,13 @@ AVTveiwer::AVTveiwer(QWidget *parent)
     ui->setupUi(this);
     player = new QMediaPlayer();
     sound = new QAudioOutput();
+    ui->pauseButton->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
 }
 
 AVTveiwer::~AVTveiwer()
 {
     delete ui;
 }
-
 
 
 void AVTveiwer::on_actionImport_Text_triggered()
@@ -70,9 +70,28 @@ void AVTveiwer::on_actionImport_Audio_triggered()
     currFile = path.fileName();
 
     player->setSource(path);
-    player->setVideoOutput(ui->video);
     player->setAudioOutput(sound);
     sound->setVolume(75);
     player->play();
+}
+
+
+void AVTveiwer::on_pauseButton_clicked()
+{
+    if(isPlaying) {
+        player->pause();
+        isPlaying = false;
+        ui->pauseButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+    } else {
+        player->play();
+        isPlaying = true;
+        ui->pauseButton->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
+    }
+}
+
+
+void AVTveiwer::on_videoSlider_valueChanged(int value)
+{
+    player->setPosition(value * 100);
 }
 
